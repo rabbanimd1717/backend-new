@@ -23,6 +23,7 @@ pipeline {
     post {
         always{
             sh 'echo this job run always'
+            deleteDir()
         }
         success {
             sh 'echo this is only job is success'
