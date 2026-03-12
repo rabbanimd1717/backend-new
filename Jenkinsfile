@@ -9,15 +9,18 @@ pipeline {
     }
     environment { 
         Name = 'Rabbani'
+        def appVersion = ''
     }
 
     stages {
-        stage('Testing') {
+        stage('read the json version') {
             steps {
-                sh """
-                    echo "This is testing purpose"
-                    ls -ltr
-                """
+                script{
+                    def packageJson = readJSON file: 'dir/package.json'
+                    appVersion = packageJson.version
+                    echo "application version: $appVersion"
+
+                }
             }
         }
     }   
