@@ -8,7 +8,6 @@ pipeline {
         ansiColor('xterm')
     }
     environment { 
-        Name = 'Rabbani'
         def appVersion = ''
     }
 
